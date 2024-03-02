@@ -5,37 +5,39 @@ public class Exercise5 {
     
     public static void concentrateGame() {        
         
-        JOptionPane.showMessageDialog(null, " Ejercicio # 5 \n \n  Simulación de juego de concéntrese " );
+        JOptionPane.showMessageDialog(null, " Ejercicio # 5 \n \n  Simulación de juego de concéntrese \n \n debe escoger dos posiciones y los valores en estas debe ser iguales" );
          
-        int[] array = new int[2];
-        int point = 0;
-        String listArray = "";   
+         int[][] array = {
+            {2, 5, 9, 3, 7, 3},
+            {2, 8, 6, 4, 1, 6},
+            {8, 1, 0, 1, 4, 7},
+            {9, 6, 4, 3, 0, 5}};
+         int numberPosition1 = 0;
+         int numberPosition2 = 0;
+         int points = 0;
+         String equalsNumbers  = "";   
         
-        while(point < 10){
-            
-            for (int position = 0; position < array.length; position++) {
-                boolean validNumber = false;
+         while(points < 2){
+            String position1 = JOptionPane.showInputDialog("Ingrese la posición #1 separada por un espacio (fila columna):");
+            String position2 = JOptionPane.showInputDialog("Ingrese la posición #2 separada por un espacio (fila columna):");                
+            String [] splitPosition1 = position1.split(" ");
+            String [] splitPosition2 = position2.split(" ");
                 
-                while (!validNumber) {
-                    int valueArray = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el valor de la posición " + position + " por favor"));
-                    
-                    if (valueArray >= 0 && valueArray <= 9) {
-                        array[position] = valueArray;
-                        validNumber = true;                      
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Debes ingresar un número entre 0 y 9");              
-                    }
-                }                
-            }  
+            if (splitPosition1.length == 2 && splitPosition2.length == 2) {
+                int row1 = Integer.parseInt(splitPosition1[0]);
+                int column1 = Integer.parseInt(splitPosition1[1]);
+                int row2 = Integer.parseInt(splitPosition2[0]);
+                int column2 = Integer.parseInt(splitPosition2[1]);
+                numberPosition1  = array[row1][column1];
+                numberPosition2  = array[row2][column2];    
+                JOptionPane.showMessageDialog(null, "El número de la posición #1 es: "+numberPosition1 + "\nEl número de la posición #2 es: " +numberPosition2);                
+            }
             
-            JOptionPane.showMessageDialog(null, "Los números ingresados fueron: \n " +array[0] + " y " + array[1]);
-            
-            if (array[0] == array[1]) {
-                point = ++point;
-                listArray += array[0] + " y " + array[1] + "\n";
-           }
-            
-           JOptionPane.showMessageDialog(null, "Lista de números iguales \n"+ listArray);
-        }
-    }
-}
+            if (numberPosition1 == numberPosition2) {
+                points ++;  
+                equalsNumbers += numberPosition1 + " " + numberPosition2 + "\n" ;
+            }
+            JOptionPane.showMessageDialog(null, "Lista números iguales hasta el momento: \n" + equalsNumbers ); 
+        }  
+    }             
+}     

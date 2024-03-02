@@ -7,10 +7,10 @@ public class Exercise20 {
     
     public static void studentGrades(){
         
-        JOptionPane.showMessageDialog(null, " Ejercicio # 20 \n \n  Calificaciones estudiantes" );
-        
+        JOptionPane.showMessageDialog(null, " Ejercicio # 20 \n \n  Calificaciones estudiantes" );        
+       
+        int [][] array = new int[24][6];
         Random fillArray = new Random();
-        int [][] array = new int[24][6]; 
         String outputRows = "";
         String outputColumns = "";
         int approvedStudents = 0;
@@ -37,11 +37,9 @@ public class Exercise20 {
         JOptionPane.showMessageDialog(null, "Los estudiantes aprobados fueron: " + approvedStudents +"\n Los estudiantes reprobados fueron: " + failedStudents );
   
         for (int j = 0; j < array[0].length; j++) {
-            int sumColumn = 0;
-            String columnString = "";
+            int sumColumn = 0;            
             for (int i = 0; i < array.length; i++) {
                 sumColumn += array[i][j];
-                columnString += array[i][j] + " "; 
             }
             double averageColumn = (double) sumColumn / array.length;   
             outputColumns += "Promedio de la materia "+ j + "  es : " + averageColumn + "\n";
