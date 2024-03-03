@@ -1,4 +1,4 @@
-package workshop2_java;
+.package workshop2_java;
 import javax.swing.JOptionPane;
 
 public class Exercise5 {
@@ -17,7 +17,7 @@ public class Exercise5 {
          int points = 0;
          String equalsNumbers  = "";   
         
-         while(points < 2){
+         while(points < 10){
             String position1 = JOptionPane.showInputDialog("Ingrese la posición #1 separada por un espacio (fila columna):");
             String position2 = JOptionPane.showInputDialog("Ingrese la posición #2 separada por un espacio (fila columna):");                
             String [] splitPosition1 = position1.split(" ");
