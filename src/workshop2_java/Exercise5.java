@@ -1,4 +1,4 @@
-.package workshop2_java;
+package workshop2_java;
 import javax.swing.JOptionPane;
 
 public class Exercise5 {
